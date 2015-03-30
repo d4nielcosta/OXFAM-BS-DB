@@ -1,10 +1,15 @@
 from django.conf.urls import url, patterns
-from volunteers import views
 
-__author__ = 'joshuamarsh'
+import views
 
 
 urlpatterns = patterns('',
 
-    url(r'^', views.index, name='index'),
-    )
+
+                       url(r'^$', views.index, name='index'),
+
+                       #Profile Related
+                       url(r'^profile/(?P<username>[\w\-]+)/$', views.profile, name='profile'),
+
+
+                       )
