@@ -5,7 +5,7 @@ from models import Volunteer
 
 def index(request):
     context_dict = {}
-    volunteers = Volunteer.objects.filter().order_by('-forename')
+    volunteers = Volunteer.objects.filter().order_by('forename')
     context_dict['volunteers'] = volunteers
 
     return render(request, 'volunteers/index.html', context_dict)
