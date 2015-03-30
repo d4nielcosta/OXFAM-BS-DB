@@ -1,54 +1,53 @@
+import datetime
 from django.utils.text import slugify
-
-__author__ = 'joshuamarsh'
 from django.core.validators import RegexValidator
 from django.db import models
 
 
 class Volunteer(models.Model):
-    # public
-    forename = models.CharField(max_length=128, default="NO FORENAME ENTERED")
-    surname = models.CharField(max_length=128, default="NO SURNAME ENTERED")
+
+    """--------public---------"""
+
+    forename = models.CharField(max_length=128)
+    surname = models.CharField(max_length=128)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
                                  message="Phone number must be entered in the format:'+999999999'. Up to 15 digits allowed.")
     primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)  # validators should be a list
     secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+
+    #emergency contact
     emergency_contact_forename = models.CharField(max_length=128, default="NO FORENAME ENTERED")
     emergency_contact_surname = models.CharField(max_length=128, default="NO SURNAME ENTERED")
     emergency_contact_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
-    # private
-    start_date = models.DateField(blank=True)
-    birthday = models.DateField(blank=True)
+
+    """--------private---------"""
+
+    # reference1
+    reference1_forename = models.CharField(max_length=128, blank=True, default="")
+    reference1_surname = models.CharField(max_length=128, blank=True, default="")
+    reference1_primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    reference1_secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+
+    # reference2
+    reference2_forename = models.CharField(max_length=128, blank=True, default="")
+    reference2_surname = models.CharField(max_length=128, blank=True, default="")
+    reference2_primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+    reference2_secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
+
+    start_date = models.DateField(blank=True, default=datetime.date.today())
+    birthday = models.DateField()
     #R.A.?
     parental_permission = models.BooleanField(default=False)  #do they want a charfield for description/comments?
     permission_to_work = models.BooleanField(default=False)  #do they want a charfield for description/comments?
     till = models.BooleanField(default=False)
     open_shop = models.BooleanField(default=False)
     close_shop = models.BooleanField(default=False)
-    slug = models.SlugField(default="NO SLUG FIELD")
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.forename + ' ' + self.surname + ' ' + self.birthday)
         super(Volunteer, self).save(*args, **kwargs)
 
 
     def __unicode__(self):
-        return self.slug
+        return self.forename + ' ' + self.surname
+        #make sure to modify admin so it shows column with birthday and date joined
 
-
-class Reference(models.Model):
-    volunteer = models.ForeignKey(Volunteer, related_name='reference')
-    forename = models.CharField(max_length=128, default="NO FORENAME ENTERED")
-    surname = models.CharField(max_length=128, default="NO SURNAME ENTERED")
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
-                                 message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-    primary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)  # validators should be a list
-    secondary_phone = models.CharField(validators=[phone_regex], blank=True, max_length=15)
-    slug = models.SlugField(default="NO SLUG FIELD")
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.forename + ' ' + self.surname + ' ' + self.volunteer_id)
-        super(Reference, self).save(*args, **kwargs)
-
-    def __unicode__(self):
-        return self.slug

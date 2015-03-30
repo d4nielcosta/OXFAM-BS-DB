@@ -11,10 +11,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
+        migrations.AlterField(
             model_name='volunteer',
-            name='slug',
-            field=models.SlugField(default=b'NO SLUG FIELD'),
-            preserve_default=True,
+            name='reference1_forename',
+            field=models.CharField(default=b'a', max_length=128, blank=True),
         ),
     ]
