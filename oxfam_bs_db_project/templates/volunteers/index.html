@@ -4,6 +4,17 @@
 
 <h1>Index</h1>
 
-<h3>The list of users should appear here.</h3>
+
+{% if volunteers %}
+<h3>Volunteers</h3>
+{% for vol in volunteers %}
+<li class="list-group-item" ><a href="{{profile}}">
+    <h4>{{vol.forename}} {{vol.surname}}</h4>
+    Phone number: <strong> {{vol.primary_phone}} </strong> | Birthday: {{vol.birthday}}
+    </a>
+    </li>
+
+{% endfor %}
+{% endif %}
 
 {% endblock %}
