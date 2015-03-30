@@ -9,7 +9,7 @@ urlpatterns = patterns('',
                        url(r'^$', views.index, name='index'),
 
                        #Profile Related
-                       url(r'^profile/(?P<username>[\w\-]+)/$', views.profile, name='profile'),
+                       url(r'^profile/(?P<volunteer_id>[\w\-]+)/$', views.profile, name='profile'),
 
 
                        )
