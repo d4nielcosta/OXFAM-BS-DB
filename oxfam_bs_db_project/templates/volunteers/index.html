@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 
 {% block body_block %}
-
-<h1>Index</h1>
-
-
+    
 {% if volunteers %}
-<h3>Volunteers</h3>
+<br> <h1 align="center"> Volunteers </h1><br>
 {% for vol in volunteers %}
 <li class="list-group-item" ><a href="{% url 'profile' vol.id %}">
     <h4>{{vol.forename}} {{vol.surname}}</h4>
-    Phone number: <strong> {{vol.primary_phone}} </strong> | Birthday: {{vol.birthday}}
+    Phone number: <strong> {{vol.primary_phone}} </strong>
     </a>
     </li>
 

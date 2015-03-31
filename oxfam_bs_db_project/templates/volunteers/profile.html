@@ -1,7 +1,57 @@
 {% extends 'base.html' %}
 
 {% block body_block %}
-<h1> Profile </h1>
+    <br> <h1 align="center"> {{ forname }} {{ surname }} </h1><br>
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div id="modelfield">
+                <strong>Primary Phone:</strong> {{ primary_phone }}
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+
+            <div id="modelfield">
+                <strong>Secondary Phone:</strong> {{ secondary_phone }}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div id="modelfield">
+                <strong>Emergency Contact
+                    Name:</strong> {{ emergency_contact_forename }} {{ emergency_contact_surname }}
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+
+            <div id="modelfield">
+                <strong>Emergency Contact Number:</strong> {{ emergency_contact_phone }}
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
 
 
 
