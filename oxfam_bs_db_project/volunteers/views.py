@@ -16,12 +16,8 @@ def index(request):
 
 def profile(request, volunteer_id):
 
+
     context_dict = {}
-
-
-
-
-
 
     volunteer = Volunteer.objects.get(id=volunteer_id)
     context_dict['forname'] = volunteer.forename
