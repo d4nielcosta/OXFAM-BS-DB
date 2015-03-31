@@ -10,7 +10,6 @@ from django.db import models
 """TOTO:
 
 Auto-log out admin after certain amount of time?
-Make #modelfield text larger
 set up scheduled weekly emails for birthdays
 """
 

@@ -15,6 +15,31 @@ def index(request):
 
 def profile(request, volunteer_id):
 
+
+
+
+
+
+    import smtplib
+
+    fromaddr = 'bitsnow1@aol.com'
+    toaddrs  = 'crazybioguy@gmail.com'
+    msg = 'A test email.'
+
+
+    # Credentials (if needed)
+    username = 'bitsnow1@aol.com'
+    password = '12ooottafagvSH'
+
+    # The actual mail send
+    server = smtplib.SMTP_SSL('smtp.aol.com:587')
+    server.starttls()
+    server.login(username,password)
+    server.sendmail(fromaddr, toaddrs, msg)
+    server.quit()
+
+
+
     context_dict = {}
     volunteer = Volunteer.objects.get(id=volunteer_id)
     context_dict['forname'] = volunteer.forename
