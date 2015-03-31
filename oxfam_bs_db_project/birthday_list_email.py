@@ -15,8 +15,11 @@ def send_email():
     birthday_volunteers = Volunteer.objects.filter(birthday__in=[datetime.today() + timedelta(days=i) for i in range(1,8)])
     names = ""
 
-    for vol in birthday_volunteers:
-        names += '          ' + vol.forename + ' ' + vol.surname + '\n\n'
+    if birthday_volunteers:
+        for vol in birthday_volunteers:
+            names += '          ' + vol.forename + ' ' + vol.surname + '\n\n'
+    else:
+        names = "No birthdays this week."
 
 
 
@@ -26,10 +29,10 @@ def send_email():
 
     """ % (names)
 
-    username = ''
-    password = ''
-    from_address = ''
-    to_address = ''
+    username = 'crazybioguy'
+    password = '12ooottafagvSH'
+    from_address = 'crazybioguy@gmail.com'
+    to_address = 'crazybioguy@gmail.com'
 
     try:
         mail = smtplib.SMTP('smtp.gmail.com', 587)
