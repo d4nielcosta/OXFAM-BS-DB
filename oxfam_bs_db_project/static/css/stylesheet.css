@@ -2,10 +2,13 @@
     font-size: 14pt;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0px;
+footer {
+    position: relative;
+    bottom: 0;
     width: 100%;
+	height:50px;
+	left:0;
+    background-color: #7DD700;
     }
 
 #footertext {
@@ -15,12 +18,7 @@
     color: #ffffff;
 }
 
-#volunteer-info {
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-ul {
+#pseudo-list {
     padding-left: 10%;
     padding-right: 10%;
 }
