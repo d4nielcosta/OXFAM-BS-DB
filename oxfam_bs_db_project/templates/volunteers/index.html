@@ -5,7 +5,7 @@
 {% if volunteers %}
 <br> <h1 align="center"> Volunteers </h1><br>
 {% for vol in volunteers %}
-<li class="list-group-item" ><a href="{% url 'profile' vol.id %}">
+<li class="list-group-item"><a href="{% url 'profile' vol.id %}">
     <h4>{{vol.forename}} {{vol.surname}}</h4>
     Phone number: <strong> {{vol.primary_phone}} </strong>
     </a>

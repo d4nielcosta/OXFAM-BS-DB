@@ -1,3 +1,9 @@
 #modelfield {
     font-size: 14pt;
 }
+
+#footertext {
+    font-size: 10pt;
+    text-align: center;
+    color: #ffffff;
+}
