@@ -17,22 +17,26 @@ def send_email():
 
     if birthday_volunteers:
         for vol in birthday_volunteers:
-            names += '          ' + vol.forename + ' ' + vol.surname + '\n\n'
+            names += '          ' + vol.forename + ' ' + vol.surname + ' -- ' + vol.birthday.strftime("%A") +'\n\n'
     else:
         names = "No birthdays this week."
 
 
 
-    content = """SUBJECT:Weekly Birthday List
-    \n\nHello from your website,\n\nHere is the list of volunteers whose birthdays are this week:\n\n\n%s\nRegards,\n\n\nYour Website
+    content = """SUBJECT:Weekly Birthday List Test
+    \n\nHello from your website,\n\nThis weeks birthdays:\n\n\n%s
+    \nRegards,\n\n\nYour Website\n\nNote: This email does not include birthdays on the day it was send.\n\n
+
+
+
 
 
     """ % (names)
 
-    username = 'crazybioguy'
-    password = '12ooottafagvSH'
-    from_address = 'crazybioguy@gmail.com'
-    to_address = 'crazybioguy@gmail.com'
+    username = 'oxfamvolunteerswebsite'
+    password = 'PearsurgeoN11'
+    from_address = 'oxfamvolunteerswebsite@gmail.com'
+    to_address = 'oxfamshopf6029@oxfam.org.uk'
 
     try:
         mail = smtplib.SMTP('smtp.gmail.com', 587)
