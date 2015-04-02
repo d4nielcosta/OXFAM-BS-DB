@@ -51,4 +51,6 @@ def send_email():
 
 if __name__ == '__main__':
     print "Starting Oxfam Volunteers email script..."
-    send_email()
+    if datetime.today().weekday() == 0:
+        print "Sending email"
+        send_email()
