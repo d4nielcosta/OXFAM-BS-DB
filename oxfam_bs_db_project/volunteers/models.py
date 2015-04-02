@@ -4,20 +4,6 @@ from django.core.validators import RegexValidator
 from django.db import models
 
 
-
-
-
-"""TOTO:
-
-404 page
-pythonanywhere
--debug=off
-"""
-
-
-
-
-
 class Volunteer(models.Model):
 
     """--------public---------"""
