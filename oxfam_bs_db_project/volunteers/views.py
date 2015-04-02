@@ -1,6 +1,6 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from models import Volunteer
 
 
@@ -54,3 +54,6 @@ def profile(request, volunteer_id):
 
 
     return render (request, 'volunteers/profile.html', context_dict)
+
+def handle404(request):
+    return render(request, 'volunteers/page_not_found.html')

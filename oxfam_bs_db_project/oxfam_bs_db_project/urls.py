@@ -3,6 +3,7 @@ from django.contrib import admin
 from volunteers import views
 
 
+
 urlpatterns = patterns('',
 
     url(r'^$', views.index, name='index'),
@@ -10,3 +11,8 @@ urlpatterns = patterns('',
     url(r'^volunteers/', include('volunteers.urls')),
 
 )
+
+handler400 = 'views.handle404'
+handler404 = 'views.handle404'
+handler500 = 'views.handle404'
+

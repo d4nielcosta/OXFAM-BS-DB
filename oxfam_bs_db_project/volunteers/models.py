@@ -9,8 +9,9 @@ from django.db import models
 
 """TOTO:
 
-Auto-log out admin after certain amount of time?
-set up scheduled weekly emails for birthdays
+404 page
+pythonanywhere
+-debug=off
 """
 
 
