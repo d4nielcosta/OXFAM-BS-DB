@@ -4,9 +4,7 @@ from django.shortcuts import render
 from models import Volunteer
 
 
-
 def index(request):
-
     """TODO: Add option to filter by forename or surname and add search. """
     context_dict = {}
     volunteers = Volunteer.objects.filter().order_by('forename')
@@ -14,9 +12,8 @@ def index(request):
 
     return render(request, 'volunteers/index.html', context_dict)
 
+
 def profile(request, volunteer_id):
-
-
     context_dict = {}
 
     volunteer = Volunteer.objects.get(id=volunteer_id)
@@ -50,10 +47,8 @@ def profile(request, volunteer_id):
 
     context_dict['age'] = datetime.today().year - volunteer.birthday.year
 
+    return render(request, 'volunteers/profile.html', context_dict)
 
-
-
-    return render (request, 'volunteers/profile.html', context_dict)
 
 def handle404(request):
     return render(request, 'volunteers/page_not_found.html')
