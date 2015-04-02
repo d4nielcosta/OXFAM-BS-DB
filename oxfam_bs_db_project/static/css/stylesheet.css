@@ -2,8 +2,15 @@
     font-size: 14pt;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    }
+
 #footertext {
     font-size: 10pt;
+    padding-top: 5px;
     text-align: center;
     color: #ffffff;
 }
